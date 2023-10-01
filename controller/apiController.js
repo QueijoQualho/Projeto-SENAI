@@ -65,6 +65,30 @@ class ApiSteam {
             throw new Error('Um erro ao pegar informações das conquistas');
         }
     }
+
+    async orderAchievements(Achievements, ImageAchievements) {
+        try {
+            const newArray = Achievements.map(e => {
+                const matchedAchievement = ImageAchievements.find(imageAchievement => imageAchievement.name === e.name);
+
+                if (matchedAchievement) {
+                    return {
+                        ...matchedAchievement,
+                        percent: e.percent
+                    }
+
+                } else {
+                    return e
+                }
+            });
+
+            return newArray;
+        } catch (error) {
+            console.error("Erro ao ordenar conquistas:", error);
+            throw error;
+        }
+    }
+
 }
 
 module.exports = ApiSteam; 

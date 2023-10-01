@@ -16,16 +16,18 @@ router.get('/', async (req, res) => {
 
     const achievements = await apiSteam.getAchievements(idJogo);
     const imgGame = await apiSteam.getImageAchievements(idJogo);
+    const ordem = await apiSteam.orderAchievements(achievements,imgGame)
 
-    res.json({
-      idJogo,
-      achievements,
-      imgGame,
-    });
+
+    res.json(ordem)
   } catch (err) {
     console.error(err);
     res.status(500).send('Um erro foi encontrado');
   }
 });
+
+/* Usar isso na hora de ordenar a lista ordem de arquivo */
+/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort */
+/* newArray.sort((a, b) => b.percent - a.percent) */
 
 module.exports = router;

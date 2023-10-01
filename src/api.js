@@ -32,7 +32,7 @@ async function getAchievements(idJogo) {
             throw new Error('Erro na solicitação');
         }
 
-        return response.data;
+        return response.data.achievementpercentages.achievements;
     } catch (err) {
         console.error(err);
         throw new Error('Um erro ao pega as conquistas');

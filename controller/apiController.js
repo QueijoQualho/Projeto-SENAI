@@ -43,7 +43,7 @@ class ApiSteam {
         }
     }
 
-    async getImageAchievements(idJogo) {
+    async getInfoGame(idJogo) {
         const url = `https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=${apiKey}&appid=${idJogo}`;
 
         try {
@@ -66,10 +66,10 @@ class ApiSteam {
         }
     }
 
-    orderAchievements(Achievements, ImageAchievements) {
+    mapAchievementsWithInfo(Achievements, InfoGame) {
         try {
             const newArray = Achievements.map(e => {
-                const matchedAchievement = ImageAchievements.find(imageAchievement => imageAchievement.name === e.name);
+                const matchedAchievement = InfoGame.find(imageAchievement => imageAchievement.name === e.name);
 
                 if (matchedAchievement) {
                     return {

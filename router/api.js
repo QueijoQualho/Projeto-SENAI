@@ -15,8 +15,8 @@ router.get('/:index', async (req, res) => {
     }
 
     const achievements = await apiSteam.getAchievements(idJogo);
-    const imgGame = await apiSteam.getImageAchievements(idJogo);
-    const ordem = apiSteam.orderAchievements(achievements,imgGame)
+    const infoGame = await apiSteam.getInfoGame(idJogo);
+    const ordem = apiSteam.mapAchievementsWithInfo(achievements,infoGame)
 
 
     res.json(ordem)

@@ -66,7 +66,7 @@ class ApiSteam {
         }
     }
 
-    async orderAchievements(Achievements, ImageAchievements) {
+    orderAchievements(Achievements, ImageAchievements) {
         try {
             const newArray = Achievements.map(e => {
                 const matchedAchievement = ImageAchievements.find(imageAchievement => imageAchievement.name === e.name);

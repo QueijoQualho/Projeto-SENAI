@@ -4,8 +4,8 @@ const ApiSteam = require('../controller/apiController.js');
 const router = express.Router();
 const apiSteam = new ApiSteam(); 
 
-router.get('/', async (req, res) => {
-  const nomeJogo = req.body.nomeJogo; 
+router.get('/:index', async (req, res) => {
+  const nomeJogo = req.params.index; 
   try {
     const idJogo = await apiSteam.getNameGame(nomeJogo); 
 
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
     const achievements = await apiSteam.getAchievements(idJogo);
     const imgGame = await apiSteam.getImageAchievements(idJogo);
-    const ordem = await apiSteam.orderAchievements(achievements,imgGame)
+    const ordem = apiSteam.orderAchievements(achievements,imgGame)
 
 
     res.json(ordem)

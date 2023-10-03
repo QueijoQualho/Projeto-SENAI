@@ -57,4 +57,3 @@ Para rodar este projeto localmente, siga estas etapas:
 ## Uso
 
 Você pode utilizar este projeto para obter conquistas do Steam para vários jogos, fazendo requisições GET ao endpoint apropriado. As conquistas incluirão seus nomes, descrições, ícones e percentagens de conclusão.
-```

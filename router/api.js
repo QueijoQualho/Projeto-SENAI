@@ -2,12 +2,12 @@ const express = require('express');
 const ApiSteam = require('../controller/apiController.js');
 
 const router = express.Router();
-const apiSteam = new ApiSteam(); 
+const apiSteam = new ApiSteam();
 
 router.get('/api/:index', async (req, res) => {
-  const nomeJogo = req.params.index; 
+  const nomeJogo = req.params.index;
   try {
-    const idJogo = await apiSteam.getNameGame(nomeJogo); 
+    const idJogo = await apiSteam.getNameGame(nomeJogo);
 
     if (idJogo == null) {
       res.status(404).json({ error: 'Jogo não encontrado' });
@@ -16,7 +16,7 @@ router.get('/api/:index', async (req, res) => {
 
     const achievements = await apiSteam.getAchievements(idJogo);
     const infoGame = await apiSteam.getInfoGame(idJogo);
-    const ordem = apiSteam.mapAchievementsWithInfo(achievements,infoGame)
+    const ordem = apiSteam.mapAchievementsWithInfo(achievements, infoGame)
 
 
     res.json(ordem)

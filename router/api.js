@@ -4,7 +4,7 @@ const ApiSteam = require('../controller/apiController.js');
 const router = express.Router();
 const apiSteam = new ApiSteam(); 
 
-router.get('/:index', async (req, res) => {
+router.get('/api/:index', async (req, res) => {
   const nomeJogo = req.params.index; 
   try {
     const idJogo = await apiSteam.getNameGame(nomeJogo); 

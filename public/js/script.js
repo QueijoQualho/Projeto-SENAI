@@ -1,18 +1,18 @@
 const botao = document.getElementById("enviar")
-botao.addEventListener('click', () => {
-    const nomeJogo = document.getElementById("nomeJogo").value;
-    fetch(`/api/${nomeJogo}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then((data) => {
-            /* Vai ter que fazer o card aqui */
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error('Fetch error:', error);
-        });
-})
+
+botao.addEventListener('click', async () => {
+    try {
+        const nomeJogo = document.getElementById("nomeJogo").value;
+        const response = await fetch(`/api/${nomeJogo}`);
+
+        if (!response.ok) {
+            console.log("Jogo não encontrado");
+            return;
+        }
+
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error("Ocorreu um erro:", error);
+    }
+});

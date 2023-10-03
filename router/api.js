@@ -16,10 +16,9 @@ router.get('/api/:index', async (req, res) => {
 
     const achievements = await apiSteam.getAchievements(idJogo);
     const infoGame = await apiSteam.getInfoGame(idJogo);
-    const ordem = apiSteam.mapAchievementsWithInfo(achievements, infoGame)
+    const achievementsWithInfo = apiSteam.mapAchievementsWithInfo(achievements, infoGame)
 
-
-    res.json(ordem)
+    res.json(achievementsWithInfo)
   } catch (err) {
     console.error(err);
     res.status(500).send('Um erro foi encontrado');

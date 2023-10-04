@@ -12,7 +12,7 @@ class ApiSteam {
         try {
             const response = await axios.get(url);
             const appList = response.data.applist.apps;
-            const jogo = appList.find(app => app.name === jogoNome);
+            const jogo = appList.find(app => app.name.toLowerCase() === jogoNome.toLowerCase());
 
             if (jogo) {
                 const id = jogo.appid;

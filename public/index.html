@@ -3,11 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alice&family=Sen&display=swap');
+      </style>
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id ="nomeJogo">
-    <button type="button" id="enviar">Enviar</button>
-    <script src="js/script.js"></script>
+    <header>
+        <div class="logo">
+            <img src="IMG/logo_img.png" alt="">
+        </div>
+        <div class="titulo">
+            <h3>Search Achievements</h3>
+        </div>
+    </header>
+
+    <section class="meio">
+        <div class="pesquisa">
+            <!-- Formulário de pesquisa -->
+           <div class="busca">
+            <input type="text" placeholder="Nome do jogo...">
+
+            <div class="sort-bar">
+                <select id="sort-select">
+                    <option value="Decrescente">Classificar</option>
+                    <option value="Crescente">Crescente</option>
+                    <option value="Decrescente">Decrescente</option>
+                </select>
+            </div>
+            <ul id="product-list">
+                <!-- Aqui você pode adicionar os itens da lista de produtos -->
+            </ul>
+            
+           </div>
+             </div>
+
+    </section>
+
+    <!-- Apartir daqui é aqui -->
+
+    <section class="games">
+        <!--  Cards dos games-->
+        <div class="card">
+            <div class="nome-game">
+<h1>teste</h1>
+            </div>
+        </div>
+    </section>
+    
+    
+    <script src="script.js"></script>
 </body>
 </html>

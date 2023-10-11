@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Sen&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
@@ -92,13 +95,11 @@ li {
 .card {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-   
+    align-items: center;   
 }
 
 .nome-game {
-    min-height: 90px;
-    max-width: 70%;
+    width: 60%;
     margin-top: 60px;
     background-color: #161F30;
 

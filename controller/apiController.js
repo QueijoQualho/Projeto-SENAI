@@ -6,7 +6,7 @@ const apiKey = process.env.STEAMTOKEN;
 class ApiSteam {
     constructor() { }
 
-    async getNameGame(jogoNome) {
+    async getIdGame(jogoNome) {
         const url = `https://api.steampowered.com/ISteamApps/GetAppList/v2/`;
 
         try {
@@ -86,6 +86,21 @@ class ApiSteam {
         } catch (error) {
             console.error("Erro ao ordenar conquistas:", error);
             throw error;
+        }
+    }
+
+    async getGameNames(value) {
+        const url = `https://api.steampowered.com/ISteamApps/GetAppList/v2/`;
+
+        try {
+            const response = await axios.get(url);
+            const appList = response.data.applist.apps;
+            const filter = appList.filter(app => app.name.toLowerCase().includes(value.toLowerCase()))
+            const gameNames = filter.map(app => app.name);
+            return gameNames;
+        } catch (error) {
+            console.error('Error:', error);
+            return [];
         }
     }
 

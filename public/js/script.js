@@ -1,7 +1,9 @@
 const botao = document.getElementById("enviar")
 const input = document.getElementById("nomeJogo")
 
-botao.addEventListener('click', async () => {
+/* Tem que fazer o botão pra enviar ou algo parecido */
+
+/* botao.addEventListener('click', async () => {
     try {
         const nomeJogo = document.getElementById("nomeJogo").value;
 
@@ -18,7 +20,7 @@ botao.addEventListener('click', async () => {
     } catch (error) {
         console.error("Ocorreu um erro:", error);
     }
-});
+}); */
 
 input.addEventListener('input', async (e) => {
     try {

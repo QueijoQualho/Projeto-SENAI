@@ -35,6 +35,9 @@ Para rodar este projeto localmente, siga estas etapas:
 
    O servidor deve estar agora em execução na porta especificada (padrão é 3000).
 
+## Estrutura de Pastas
+- **public**: Esta pasta contém a parte do front-end do projeto. Aqui você pode colocar os arquivos HTML, CSS e JavaScript para a interface do usuário. Certifique-se de criar uma estrutura de pastas organizada para o seu front-end dentro da pasta "public".
+
 ## Pontos de Extensão
 
 ### Obter Conquistas de Jogos

@@ -1,6 +1,14 @@
-const botao = document.getElementById("enviar")
+const btn = document.getElementById("enviar")
 const input = document.getElementById("nomeJogo")
 
+/* btn.addEventListener('click', async (e) => {
+    try {
+        
+    } catch (error) {
+        
+    }
+})
+ */
 /* Tem que fazer o botão pra enviar ou algo parecido */
 
 /* botao.addEventListener('click', async () => {
@@ -21,7 +29,7 @@ const input = document.getElementById("nomeJogo")
         console.error("Ocorreu um erro:", error);
     }
 }); */
-
+ 
 input.addEventListener('input', async (e) => {
     try {
         const value = e.target.value;

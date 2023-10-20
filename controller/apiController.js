@@ -74,7 +74,8 @@ class ApiSteam {
                 if (matchedAchievement) {
                     return {
                         ...matchedAchievement,
-                        percent: e.percent
+                        percent: e.percent,
+                        cor: "#217373"
                     }
 
                 } else {

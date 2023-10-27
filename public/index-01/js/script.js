@@ -1,6 +1,7 @@
 const btn = document.getElementById("enviar")
 const input = document.getElementById("nomeJogo")
-const ord = document.getElementById("sort-select")
+const cres = document.getElementById("cres")
+const dcres = document.getElementById("dcres")
 
 /* btn.addEventListener('click', async (e) => {
     try {
@@ -45,4 +46,8 @@ input.addEventListener('input', async (e) => {
 })
 
 
-getactiviment('input', async)
+
+
+
+
+

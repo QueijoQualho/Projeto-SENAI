@@ -22,13 +22,17 @@
         <div class="pesquisa">
             <!-- Formulário de pesquisa -->
             <div class="busca">
-                <input type="text" id="nomeJogo" placeholder="Nome do jogo...">
+
+                <div class="container-pesquisa">
+                    <input type="text" id="caixaPesquisa" placeholder="Nome do Jogo" class="caixa-pesquisa">
+                    <img src="IMG/lupa_icon.png" alt="Ícone de Lupa" class="icone-lupa" id="icone-lupa">
+                </div>
 
                 <div class="sort-bar">
                     <select id="sort-select">
                         <option value="Decrescente">Classificar</option>
-                        <option value="Crescente" id="cres">Crescente</option>
-                        <option value="Decrescente" id="dcres">Decrescente</option>
+                        <option value="Crescente">Crescente</option>
+                        <option value="Decrescente">Decrescente</option>
                     </select>
                 </div>
 
@@ -39,7 +43,7 @@
 
     <!-- Apartir daqui é aqui -->
 
-    <section class="games">
+    <section class="games" id="fazoL">
         <!--  Cards dos games-->
         <div class="card">
             <div class="nome-game">

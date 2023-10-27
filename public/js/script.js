@@ -1,7 +1,9 @@
-const btn = document.getElementById("enviar")
 const input = document.getElementById("nomeJogo")
-const cres = document.getElementById("cres")
-const dcres = document.getElementById("dcres")
+const btnSearch = document.getElementById("icone-lupa")
+
+const banner = document.getElementById("fazoL")
+
+
 
 /* btn.addEventListener('click', async (e) => {
     try {
@@ -39,14 +41,16 @@ input.addEventListener('input', async (e) => {
         const url = `/api/test/${value}`
         const response = await fetch(url)
         const data = await response.json();
-        console.log(data);
     } catch (error) {
         console.error("Ocorreu um erro:", error);
     }
 })
 
-
-
+btnSearch.addEventListener('click', async () =>{
+    try {
+        const namegame = input.value;
+        const url =``
+})
 
 
 

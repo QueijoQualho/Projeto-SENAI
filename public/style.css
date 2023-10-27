@@ -58,21 +58,27 @@ header{
     justify-content: space-between;
     
 }
-.busca input{
-padding: 8px 50px ;
-font-size: 15px;
 
 
+.container-pesquisa {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
-.busca input[type="text"] {
-    padding-right: 30px;
-    box-sizing: border-box;
-    background-image: url(IMG/lupa_icon.png);
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 25px 25px;
-    margin-inline: 10px;
+
+.caixa-pesquisa {
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+    padding-right: 40px; /* espaço para o ícone de lupa */
+}
+
+.icone-lupa {
+    position: absolute;
+    right: 10px;
     cursor: pointer;
+    width: 20px; 
+    height: 20px; 
 }
 
 .sort-bar {

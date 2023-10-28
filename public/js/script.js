@@ -1,5 +1,5 @@
-const input = document.getElementById("nomeJogo")
-const btnSearch = document.getElementById("icone-lupa")
+const input = document.getElementById("caixaPesquisa")
+const datalist = document.getElementById('options');
 
 const banner = document.getElementById("fazoL")
 
@@ -33,24 +33,27 @@ const banner = document.getElementById("fazoL")
         console.error("Ocorreu um erro:", error);
     }
 }); */
- 
+
 input.addEventListener('input', async (e) => {
     try {
         const value = e.target.value;
 
-        const url = `/api/test/${value}`
-        const response = await fetch(url)
+        const url = `/api/test/${value}`;
+        const response = await fetch(url);
         const data = await response.json();
+
+        datalist.innerHTML = '';
+
+        data.slice(0, 10).forEach((option) => {
+            const optionElement = document.createElement('option');
+            optionElement.value = option;
+            datalist.appendChild(optionElement);
+        });
+
     } catch (error) {
         console.error("Ocorreu um erro:", error);
     }
-})
-
-btnSearch.addEventListener('click', async () =>{
-    try {
-        const namegame = input.value;
-        const url =``
-})
+});
 
 
 

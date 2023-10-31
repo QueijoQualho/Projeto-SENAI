@@ -31,7 +31,9 @@ router.get('/api/:index', async (req, res) => {
     const infoGame = await apiSteam.getInfoGame(idJogo);
     const achievementsWithInfo = apiSteam.mapAchievementsWithInfo(achievements, infoGame)
 
-    res.json(achievementsWithInfo)
+    const imageGame = `https://steamcdn-a.akamaihd.net/steam/apps/${idJogo}/header.jpg`
+    
+    res.json({ achievements: achievementsWithInfo, image: imageGame });
   } catch (err) {
     console.error(err);
     res.status(500).send('Um erro foi encontrado');

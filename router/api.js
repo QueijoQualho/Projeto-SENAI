@@ -20,7 +20,7 @@ router.get('/api/test/:value', async (req, res) => {
 router.get('/api/:index', async (req, res) => {
   const nomeJogo = req.params.index;
   try {
-    const idJogo = await apiSteam.getIdGame(nomeJogo);
+    const [idJogo, nome] = await apiSteam.getIdGame(nomeJogo);
 
     if (idJogo == null) {
       res.status(404).json({ error: 'Jogo não encontrado' });
@@ -32,8 +32,8 @@ router.get('/api/:index', async (req, res) => {
     const achievementsWithInfo = apiSteam.mapAchievementsWithInfo(achievements, infoGame)
 
     const imageGame = `https://steamcdn-a.akamaihd.net/steam/apps/${idJogo}/header.jpg`
-    
-    res.json({ achievements: achievementsWithInfo, image: imageGame });
+
+    res.json({ name: nome, image: imageGame, achievements: achievementsWithInfo });
   } catch (err) {
     console.error(err);
     res.status(500).send('Um erro foi encontrado');

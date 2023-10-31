@@ -16,7 +16,7 @@ class ApiSteam {
 
             if (jogo) {
                 const id = jogo.appid;
-                return id,jogo;
+                return [id, jogo.name]
             } else {
                 return null;
             }

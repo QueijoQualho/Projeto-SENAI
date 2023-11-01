@@ -44,13 +44,14 @@ btn.addEventListener('click', async () => {
                 banner.appendChild(a);
 
                 const sortedAchievements = sortAchiviments(data);
-
-                console.log(sortedAchievements);
-
                 
                 sortedAchievements.forEach(element => {
                     let zarabatana = document.createElement('div');
                     zarabatana.className = 'result';
+
+                    if(element.descricao == null){
+                        element.descricao = ""
+                    }
 
                     zarabatana.innerHTML = `
                     <div class="foto-conquista">
@@ -60,11 +61,13 @@ btn.addEventListener('click', async () => {
                         <div class="achieveFill" style="width: ${element.percent.toFixed(0)}%;"></div>
                         <div class="nome-conquista">
                             <h1>${element.displayName}</h1>
+                            <h5>${element.descricao}</h5>
                         </div>
                         <div class="porcentagem">
                             <h1>${element.percent.toFixed(2)}%</h1>
                         </div>
                         <div style="clear: both;"></div>
+                    </div>
                     `;
 
                     banner.appendChild(zarabatana);
@@ -102,7 +105,6 @@ btn.addEventListener('click', async () => {
 function sortAchiviments(data) {
     const order = sortSelect.value.toLowerCase();
 
-    console.log(order);
     let sortedAchievements = data.achievements;
 
     if (order == "ascending") {

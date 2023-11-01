@@ -36,7 +36,13 @@ class ApiSteam {
                 throw new Error('Erro na solicitação');
             }
 
-            return response.data.achievementpercentages.achievements;
+            const achievement = response.data.achievementpercentages.achievements;
+            if (achievement.size > 0) {
+                return achievement;
+            } else {
+                return []
+            }
+
         } catch (err) {
             console.error(err);
             throw new Error('Um erro ao pegar as conquistas');

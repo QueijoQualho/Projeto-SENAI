@@ -23,14 +23,15 @@ router.get('/api/test/:value', async (req, res) => {
 });
 
 router.get('/api/:index', async (req, res) => {
-  const nomeJogo = req.params.index;
-
-  if (!nomeJogo || nomeJogo.trim() === '') {
-    res.status(400).json({ error: 'O parâmetro "index" está vazio ou ausente' });
-    return;
-  }
-
   try {
+
+    const nomeJogo = req.params.index;
+
+    if (!nomeJogo || nomeJogo.trim() === '') {
+      res.status(400).json({ error: 'O parâmetro "index" está vazio ou ausente' });
+      return;
+    }
+    
     const [idJogo, nome] = await apiSteam.getIdGame(nomeJogo);
 
     if (idJogo == null) {
@@ -40,7 +41,7 @@ router.get('/api/:index', async (req, res) => {
 
     const achievements = await apiSteam.getAchievements(idJogo);
 
-    if(achievements.length == 0){
+    if (achievements.length == 0) {
       res.status(404).json({ error: 'O jogo não tem conquistas' });
       return
     }

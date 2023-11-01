@@ -112,7 +112,6 @@ li {
     background-color: #161F30;
     width: 60%;
     margin: 0 auto;
-    padding-bottom: 10px;
     display: none;
 }
 
@@ -124,8 +123,8 @@ li {
 
 }
 
-.nome-game{
-    height: 150px;
+.nome-game {
+    height: 200px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -165,7 +164,7 @@ li {
     color: white;
 }
 
-.porcentagem{
+.porcentagem {
     float: right;
     position: relative;
     z-index: 40;
@@ -178,7 +177,7 @@ li {
     float: left;
 }
 
-.nome-conquista{
+.nome-conquista {
     position: relative;
     padding: 17px 6px 6px 6px;
     z-index: 40;
@@ -191,4 +190,17 @@ li {
     bottom: 2px;
     z-index: 10;
     background: #17435c;
+}
+
+.erro {
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 10px;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+}
+
+.erro h3 {
+    font-size: 20px;
+    margin: 0;
 }

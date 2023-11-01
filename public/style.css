@@ -11,7 +11,8 @@
 body {
     background-image: url('IMG/fundo.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100vw;
+    display: fixed;
 }
 
 header {
@@ -106,10 +107,16 @@ li {
 }
 
 /* daqui pra frent é aqui */
+
+.games{
+    align-items: center;
+}
+
 .card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
 
 }
 

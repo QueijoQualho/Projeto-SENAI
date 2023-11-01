@@ -2,7 +2,8 @@ const input = document.getElementById("caixaPesquisa")
 const btn = document.getElementById("icone-lupa")
 const datalist = document.getElementById('options');
 
-const banner = document.getElementById("card")
+const card = document.getElementById("card")
+const banner = document.getElementById("fazoL")
 
 
 /* Tem que fazer o botão pra enviar ou algo parecido */
@@ -63,39 +64,34 @@ btn.addEventListener('click', async () => {
     const data = await response.json();
 
     data.achievements.forEach(element => {
-        let belela = document.createElement('div')
-        belela.classlist.add('nome-game')
+        let a = document.createElement('div');
+        a.className = 'nome-game'
+        let zarabatana = document.createElement('div');
+        zarabatana.className = 'result'
 
-        let zarabatana = document.createElement('div')
-        zarabatana.classList.add('conquistas')
-
-        babela.innerHTML = `
-        
+        a.innerHTML = `
         <div class="foto-jogo">
             <img src="${data.image}" alt="">
         </div>
         <div class="titulo-jogo">
-            <h1>${input.value}</h1>
+            <h1>${data.name}</h1>
         </div>
-    `
+        `
+
         zarabatana.innerHTML = `
-        <div class="foto-conquista">
-            <img src="${element.image}" alt="">
-        </div>
-        <div class="nome-conquista">
-            <h1>${element.displayName}</h1>
-        </div>
-        <div class="porcentagem">
-            <h1>${element.percent}</h1>
-        </div>  
-    `
-    banner.appendChild(babela);
-    banner.appendChild(zarabatana);
+            <div class="foto-conquista">
+                <img src="${element.image}" alt="">
+            </div>
+            <div class="nome-conquista">
+                <h1>${element.displayName}</h1>
+            </div>
+            <div class="porcentagem">
+                <h1>${element.percent}</h1>
+            </div>  
+        `;
 
+        banner.appendChild(a);
+        card.appendChild(zarabatana);
     })
-
-
-
-
 })
 

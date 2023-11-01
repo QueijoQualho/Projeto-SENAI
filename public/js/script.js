@@ -2,7 +2,7 @@ const input = document.getElementById("caixaPesquisa")
 const btn = document.getElementById("icone-lupa")
 const datalist = document.getElementById('options');
 const banner = document.getElementById("fazoL");
-
+const sortSelect = document.getElementById("sort-select")
 
 input.addEventListener('input', async (e) => {
     try {
@@ -43,7 +43,12 @@ btn.addEventListener('click', async () => {
 
                 banner.appendChild(a);
 
-                data.achievements.forEach(element => {
+                const sortedAchievements = sortAchiviments(data);
+
+                console.log(sortedAchievements);
+
+                
+                sortedAchievements.forEach(element => {
                     let zarabatana = document.createElement('div');
                     zarabatana.className = 'result';
 
@@ -93,6 +98,21 @@ btn.addEventListener('click', async () => {
         }
     }
 });
+
+function sortAchiviments(data) {
+    const order = sortSelect.value.toLowerCase();
+
+    console.log(order);
+    let sortedAchievements = data.achievements;
+
+    if (order == "ascending") {
+        sortedAchievements = sortedAchievements.sort((a, b) => a.percent - b.percent);
+    } else if (order == "descending") {
+        sortedAchievements = sortedAchievements.sort((a, b) => b.percent - a.percent);
+    }
+
+    return sortedAchievements
+}
 
 function casoErro(frase) {
     banner.textContent = ''

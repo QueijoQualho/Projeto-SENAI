@@ -11,8 +11,8 @@
 body {
     background-image: url('IMG/fundo.jpg');
     background-repeat: no-repeat;
-    background-size: 100vw;
-    display: fixed;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 header {
@@ -108,8 +108,12 @@ li {
 
 /* daqui pra frent é aqui */
 
-.games{
-    align-items: center;
+.games {
+    background-color: #161F30;
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    display: none;
 }
 
 .card {
@@ -120,32 +124,22 @@ li {
 
 }
 
-.nome-game {
-    width: 60%;
-    background-color: #161F30;
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-
-}
-
-.titulo-jogo {
-    width: 70%;
-}
-
-.foto-jogo img {
-    width: 75px;
-    height: 75px;
+.nome-game{
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .result {
-    width: 60%;
+    width: 96%;
     background-color: #1D2A42;
-    height: relative;
-    margin-bottom: 100px;
-
+    margin: 10px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .result img {
@@ -159,4 +153,42 @@ li {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+.text {
+    position: relative;
+    min-height: 60px;
+    border: 1px solid #17435c;
+    padding: 1px;
+    overflow: hidden;
+    width: 100%;
+    color: white;
+}
+
+.porcentagem{
+    float: right;
+    position: relative;
+    z-index: 40;
+    color: white;
+}
+
+.foto-conquista {
+    width: 75px;
+    height: 75px;
+    float: left;
+}
+
+.nome-conquista{
+    position: relative;
+    padding: 17px 6px 6px 6px;
+    z-index: 40;
+}
+
+.achieveFill {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    z-index: 10;
+    background: #17435c;
 }

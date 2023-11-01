@@ -37,15 +37,16 @@ class ApiSteam {
             }
 
             const achievement = response.data.achievementpercentages.achievements;
-            if (achievement.size > 0) {
+            if (achievement.length > 0) {
                 return achievement;
             } else {
-                return []
+                return [];
             }
+            
 
         } catch (err) {
             console.error(err);
-            throw new Error('Um erro ao pegar as conquistas');
+            return [];
         }
     }
 

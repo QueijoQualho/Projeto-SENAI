@@ -1,31 +1,8 @@
 const input = document.getElementById("caixaPesquisa")
 const btn = document.getElementById("icone-lupa")
 const datalist = document.getElementById('options');
+const banner = document.getElementById("fazoL");
 
-const card = document.getElementById("card")
-const banner = document.getElementById("fazoL")
-
-
-/* Tem que fazer o botão pra enviar ou algo parecido */
-
-/* botao.addEventListener('click', async () => {
-    try {
-        const nomeJogo = document.getElementById("nomeJogo").value;
-
-        const url = `/api/${nomeJogo}`
-        const response = await fetch(url);
-
-        if (!response.ok) {
-            console.log("Jogo não encontrado");
-            return;
-        }
-
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error("Ocorreu um erro:", error);
-    }
-}); */
 
 input.addEventListener('input', async (e) => {
     try {
@@ -50,10 +27,8 @@ input.addEventListener('input', async (e) => {
 
 
 btn.addEventListener('click', async () => {
-
     const nomeJogo = input.value;
-
-    const url = `/api/${nomeJogo}`
+    const url = `/api/${nomeJogo}`;
     const response = await fetch(url);
 
     if (!response.ok) {
@@ -63,35 +38,46 @@ btn.addEventListener('click', async () => {
 
     const data = await response.json();
 
-    data.achievements.forEach(element => {
+    if (data && data.achievements) {
+        banner.textContent = ""
         let a = document.createElement('div');
-        a.className = 'nome-game'
-        let zarabatana = document.createElement('div');
-        zarabatana.className = 'result'
 
-        a.innerHTML = `
-        <div class="foto-jogo">
-            <img src="${data.image}" alt="">
-        </div>
-        <div class="titulo-jogo">
-            <h1>${data.name}</h1>
-        </div>
-        `
+        a.className = 'nome-game';
+        a.style.backgroundImage = `url(${data.image})`;
 
-        zarabatana.innerHTML = `
+
+        banner.appendChild(a);
+
+        data.achievements.forEach(element => {
+
+            let zarabatana = document.createElement('div');
+            zarabatana.className = 'result';
+
+            zarabatana.innerHTML = `
             <div class="foto-conquista">
                 <img src="${element.image}" alt="">
             </div>
-            <div class="nome-conquista">
-                <h1>${element.displayName}</h1>
+            <div class="text">
+                <div class="achieveFill" style="width: ${element.percent.toFixed(0)}%;"></div>
+                <div class="nome-conquista">
+                    <h1>${element.displayName}</h1>
+                </div>
+                <div class="porcentagem">
+                    <h1>${element.percent.toFixed(2)}%</h1>
+                </div>
+                <div style="clear: both;"></div>
             </div>
-            <div class="porcentagem">
-                <h1>${element.percent}</h1>
-            </div>  
-        `;
+            `;
 
-        banner.appendChild(a);
-        card.appendChild(zarabatana);
-    })
-})
+
+            banner.appendChild(zarabatana)
+
+        });
+        banner.style.display = "block"
+    } else {
+        console.log('Nenhum dado de conquistas disponível.');
+    }
+
+});
+
 

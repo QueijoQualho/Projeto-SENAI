@@ -1,7 +1,7 @@
 const input = document.getElementById("caixaPesquisa")
 const btn = document.getElementById("icone-lupa")
 const datalist = document.getElementById('options');
-const banner = document.getElementById("fazoL");
+const banner = document.getElementById("banner");
 const sortSelect = document.getElementById("sort-select")
 
 input.addEventListener('input', async (e) => {

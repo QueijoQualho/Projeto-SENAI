@@ -28,22 +28,20 @@ router.get('/api/:index', async (req, res) => {
     const nomeJogo = req.params.index;
 
     if (!nomeJogo || nomeJogo.trim() === '') {
-      res.status(400).json({ error: 'O parâmetro "index" está vazio ou ausente' });
-      return;
+      return res.status(400).json({ error: 'O parâmetro "index" está vazio ou ausente' });
+      
     }
     
     const [idJogo, nome] = await apiSteam.getIdGame(nomeJogo);
 
     if (idJogo == null) {
-      res.status(404).json({ error: 'Jogo não encontrado' });
-      return;
+      return res.status(404).json({ error: 'Jogo não encontrado' });
     }
 
     const achievements = await apiSteam.getAchievements(idJogo);
 
     if (achievements.length == 0) {
-      res.status(404).json({ error: 'O jogo não tem conquistas' });
-      return
+      return res.status(404).json({ error: 'O jogo não tem conquistas' });
     }
 
     const infoGame = await apiSteam.getInfoGame(idJogo);
@@ -57,10 +55,5 @@ router.get('/api/:index', async (req, res) => {
     res.status(500).send('Um erro foi encontrado');
   }
 });
-
-
-/* Usar isso na hora de ordenar a lista ordem de arquivo */
-/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort */
-/* newArray.sort((a, b) => b.percent - a.percent) */
 
 module.exports = router;
